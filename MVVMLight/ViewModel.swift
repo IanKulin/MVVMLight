@@ -9,7 +9,7 @@ import Foundation
 
 
 class LightViewModel: ObservableObject {
-    @Published var lightBulb = Light(on: false)
+    @Published private var lightBulb = Light(on: false)
     
     
     func setLightOn(_ lightOn: Bool)
