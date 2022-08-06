@@ -8,34 +8,35 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @ObservedObject var viewModel = LightViewModel()
-    
+    @ObservedObject var light = LightViewModel()
     
     var body: some View {
         VStack{
-            
             Spacer()
-            
-            if viewModel.isOn(){
-                Text("Light On").font(.largeTitle)
+            if light.isOn(){
+                drawLitBulb
             }
             else{
-                Text("Light Off").font(.largeTitle)
+                Image(systemName: "lightbulb.fill").font(.system(size: 72))
             }
-            
             Spacer()
-            
             Button("Toggle Light", action: {
-                viewModel.setLightOn(!viewModel.isOn())}
+                light.toggle()}
             )
             .padding()
-            .foregroundColor(.white)
             .font(.title)
+            .foregroundColor(.white)
             .background(Color.accentColor)
             .cornerRadius(10)
             .padding()
-            
+        }
+    }
+    
+    var drawLitBulb: some View {
+        // view of an iluminated bulb
+        ZStack{
+            Circle().fill(.yellow).frame(width: 150, height: 150)
+            Image(systemName: "lightbulb").font(.system(size: 72))
         }
     }
 }
@@ -46,5 +47,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewInterfaceOrientation(.portrait)
     }
 }

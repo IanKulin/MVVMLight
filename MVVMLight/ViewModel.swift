@@ -11,17 +11,10 @@ import Foundation
 class LightViewModel: ObservableObject {
     @Published private var lightBulb = Light(on: false)
     
-    
-    func setLightOn(_ lightOn: Bool)
-    {
-        lightBulb.on = lightOn
+    func toggle() {
+        lightBulb.on = !lightBulb.on
     }
     
-    
-    func isOn() -> Bool
-    {
-        return lightBulb.on
-    }
-   
+    func isOn() -> Bool { return lightBulb.on }
     
 }
