@@ -15,6 +15,6 @@ class LightViewModel: ObservableObject {
         lightBulb.on = !lightBulb.on
     }
     
-    func isOn() -> Bool { return lightBulb.on }
+    var isOn: Bool { return lightBulb.on }
     
 }
