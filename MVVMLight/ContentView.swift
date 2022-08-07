@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var light = LightViewModel()
+    @StateObject var light = LightViewModel()
     
     var body: some View {
         VStack{
             Spacer()
-            if light.isOn(){
+            if light.isOn {
                 drawLitBulb
             }
-            else{
+            else {
                 Image(systemName: "lightbulb.fill").font(.system(size: 72))
             }
             Spacer()
